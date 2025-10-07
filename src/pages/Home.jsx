@@ -1,7 +1,13 @@
+import Hero from '../components/Hero';
+import Stats from '../components/Stats';
+
 function Home(){
 
     return(
-        <h1>home</h1>
+        <>
+            <Hero></Hero>
+            <Stats></Stats>
+        </>
     )
 }
 
