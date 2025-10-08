@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import { FiDownload } from "react-icons/fi";
 import { FaStar } from "react-icons/fa";
 
@@ -11,6 +12,7 @@ function Card({data}) {
     }
 
     return(
+        <Link to={`/details/${data.id}`}>
         <div className="card bg-base-100 w-72 shadow-sm">
             <figure>
                 <img
@@ -32,6 +34,7 @@ function Card({data}) {
                 </div>
             </div>
         </div>
+        </Link>
     )
 }
 
