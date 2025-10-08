@@ -30,11 +30,9 @@ function Nav() {
                         {navLinks}
                     </ul>
                     </div>
-                    <img src={logo} className="w-10" alt="logo" />
-                    <a className="btn btn-ghost text-base inter-bold bg-gradient-to-r from-[#632EE3] to-[#9F62F2] bg-clip-text text-transparent">HERO IO</a>
+                    {/* <img src={logo} className="w-10" alt="logo" /> */}
+                    <Link to='/' className="btn btn-ghost text-base inter-bold bg-gradient-to-r from-[#632EE3] to-[#9F62F2] bg-clip-text text-transparent"><img src={logo} className="w-10" alt="logo" /> HERO IO</Link>
                 </div>
-
-
 
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
