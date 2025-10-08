@@ -4,7 +4,7 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContaine
 function RatingChart({props}) {
 
     return (
-        <div style={{ width: '100%', height: 400 }}> {/* parent container controls size */}
+        <div style={{ width: '100%', height: 400 }}>
             <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={props} layout="vertical" margin={{ top: 50, right: 10, left: 10, bottom: 50 }}>
                 <CartesianGrid strokeDasharray="3 3" />
@@ -19,3 +19,4 @@ function RatingChart({props}) {
 }
 
 export default RatingChart;
+
