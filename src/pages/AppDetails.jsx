@@ -3,6 +3,8 @@ import { FiDownload } from "react-icons/fi";
 import { FaStar } from "react-icons/fa";
 import { AiFillLike } from "react-icons/ai";
 import RatingChart from '../components/RatingChart'
+import {addToStorage, getStorageData} from '../utilities/Storage'
+import { useState, useEffect } from "react";
 
 
 function AppDetails(){
@@ -18,6 +20,23 @@ function AppDetails(){
         const averageRating = (weightedSum / totalRatings).toFixed(1);
         return averageRating;
     }
+
+
+
+    function handleAddStorage() {
+        addToStorage(appId)
+        setIsExists(true)
+    }
+
+
+    const [isExists, setIsExists] = useState(false);
+    useEffect(() => {
+    const installed = getStorageData(); 
+    const exists = installed.includes(appId);
+    exists && setIsExists(true)
+    }, [appId]);
+
+
 
     return (
         <div className="bg-base-100 py-[50px]">
@@ -53,7 +72,7 @@ function AppDetails(){
                             </div>
                         </div>
 
-                        <button className="btn bg-green-500 text-white">{`Install Now (${appInfo.size}MB)`}</button>
+                        <button className="btn bg-green-500 text-white" onClick={handleAddStorage}>{isExists ? 'Installed' : `Install Now (${appInfo.size}MB)`}</button>
                     </div>
                 </div>
 
