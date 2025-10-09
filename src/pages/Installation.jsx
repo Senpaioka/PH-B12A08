@@ -24,6 +24,15 @@ function Installation() {
     },[data, installedList])
 
 
+    function getAverageRating(rating) {
+        const totalRatings = rating.reduce((sum, item) => sum + item.count, 0);
+        const weightedSum = rating.reduce((sum, item, index) => sum + (index + 1) * item.count, 0);
+        const averageRating = (weightedSum / totalRatings).toFixed(1);
+        return averageRating;
+    }
+
+
+
     // sorted functionality 
     const [sortBy, setSortBy] = useState('');
 
@@ -38,6 +47,15 @@ function Installation() {
         if (picked === 'downloads'){
             const downloaded = [...appData].sort((a, b) => b.downloads - a.downloads);
             setAppData(downloaded);
+        }
+        if (picked === 'rating'){
+            const rated = [...appData].sort((a, b) => {
+                const averageA = getAverageRating(a.ratings);
+                const averageB = getAverageRating(b.ratings);
+                const ratings = averageB - averageA;
+                return ratings;
+            })
+            setAppData(rated)
         }
     }
 

@@ -38,8 +38,9 @@ function AppDetails(){
 
 
 
+  
     return (
-        <div className="bg-base-100 py-[50px]">
+            <div className="bg-base-100 py-[50px]">
             <div className="w-10/12 mx-auto">
                 {/* app info section  */}
                 <div className="grid md:grid-cols-4 gap-12 py-5">
@@ -96,5 +97,6 @@ function AppDetails(){
         </div>
     )
 }
+  
 
 export default AppDetails;
