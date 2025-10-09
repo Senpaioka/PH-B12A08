@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router";
 import { useEffect, useState } from "react";
 import { getStorageData, removeSavedData } from "../utilities/Storage";
 import ListCard from "../components/ListCard";
+import { toast } from 'react-toastify';
 
 
 
@@ -64,6 +65,7 @@ function Installation() {
     function handleDelete(id){
         const updated = removeSavedData(id);
         setInstalledList(updated);
+        toast('App Uninstalled !!!')
     }
 
     return(
