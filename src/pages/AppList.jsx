@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router";
-import Card from "../components/Card";
+import { lazy, Suspense } from "react";
+// import Card from "../components/Card";
+const Card = lazy(() => import("../components/Card"));
 
 
 function AppList() {
@@ -50,12 +52,14 @@ function AppList() {
                     </div>
                 </div>
 
+                <Suspense fallback={<div className="flex justify-center items-center w-full min-h-[300px]"><span className="loading loading-infinity loading-xl"></span></div>}>
                 <div className="grid grid-cols-1 place-items-center md:grid-cols-2 xl:grid-cols-4 gap-5 mt-[50px]">
                     {
                         appData.length > 0 ? appData.map(app => <Card data={app} key={app.id}></Card>)
                         : <p className="inter-bold text-4xl text-gray-300">No App Found !!</p>
                     }
                 </div>
+                </Suspense>
 
 
             </div>

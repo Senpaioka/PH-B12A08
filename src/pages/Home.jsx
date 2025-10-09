@@ -1,8 +1,9 @@
-import { useLoaderData } from "react-router";
+import { useLoaderData, Await } from "react-router";
 
 import Hero from '../components/Hero';
 import Stats from '../components/Stats';
 import AppBox from '../components/AppBox';
+import { Suspense } from "react";
 
 
 function Home(){
